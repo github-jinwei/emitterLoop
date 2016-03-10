@@ -15,6 +15,7 @@
 		043807A81C913C1C00374F62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 043807A61C913C1C00374F62 /* LaunchScreen.storyboard */; };
 		043807B31C913C1C00374F62 /* emitterLoopTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 043807B21C913C1C00374F62 /* emitterLoopTests.m */; };
 		043807BE1C913C1C00374F62 /* emitterLoopUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 043807BD1C913C1C00374F62 /* emitterLoopUITests.m */; };
+		043807CD1C914F0B00374F62 /* EmitterSampleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 043807CC1C914F0B00374F62 /* EmitterSampleVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		043807B91C913C1C00374F62 /* emitterLoopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = emitterLoopUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		043807BD1C913C1C00374F62 /* emitterLoopUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = emitterLoopUITests.m; sourceTree = "<group>"; };
 		043807BF1C913C1C00374F62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		043807CB1C914F0B00374F62 /* EmitterSampleVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmitterSampleVC.h; sourceTree = "<group>"; };
+		043807CC1C914F0B00374F62 /* EmitterSampleVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmitterSampleVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +113,8 @@
 				043807A61C913C1C00374F62 /* LaunchScreen.storyboard */,
 				043807A91C913C1C00374F62 /* Info.plist */,
 				043807981C913C1C00374F62 /* Supporting Files */,
+				043807CB1C914F0B00374F62 /* EmitterSampleVC.h */,
+				043807CC1C914F0B00374F62 /* EmitterSampleVC.m */,
 			);
 			path = emitterLoop;
 			sourceTree = "<group>";
@@ -271,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				043807A01C913C1C00374F62 /* ViewController.m in Sources */,
+				043807CD1C914F0B00374F62 /* EmitterSampleVC.m in Sources */,
 				0438079D1C913C1C00374F62 /* AppDelegate.m in Sources */,
 				0438079A1C913C1C00374F62 /* main.m in Sources */,
 			);
