@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		041AD5511C925D5B00D8B2B6 /* SYEmitterLoopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 041AD5501C925D5B00D8B2B6 /* SYEmitterLoopView.m */; };
+		041AD5531C928BD900D8B2B6 /* 1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 041AD5521C928BD900D8B2B6 /* 1.gif */; };
 		0438079A1C913C1C00374F62 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 043807991C913C1C00374F62 /* main.m */; };
 		0438079D1C913C1C00374F62 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0438079C1C913C1C00374F62 /* AppDelegate.m */; };
 		043807A01C913C1C00374F62 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0438079F1C913C1C00374F62 /* ViewController.m */; };
@@ -36,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		041AD54F1C925D5B00D8B2B6 /* SYEmitterLoopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYEmitterLoopView.h; sourceTree = "<group>"; };
+		041AD5501C925D5B00D8B2B6 /* SYEmitterLoopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYEmitterLoopView.m; sourceTree = "<group>"; };
+		041AD5521C928BD900D8B2B6 /* 1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 1.gif; sourceTree = "<group>"; };
 		043807951C913C1C00374F62 /* emitterLoop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = emitterLoop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		043807991C913C1C00374F62 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0438079B1C913C1C00374F62 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -104,6 +109,7 @@
 		043807971C913C1C00374F62 /* emitterLoop */ = {
 			isa = PBXGroup;
 			children = (
+				041AD5521C928BD900D8B2B6 /* 1.gif */,
 				0438079B1C913C1C00374F62 /* AppDelegate.h */,
 				0438079C1C913C1C00374F62 /* AppDelegate.m */,
 				0438079E1C913C1C00374F62 /* ViewController.h */,
@@ -115,6 +121,8 @@
 				043807981C913C1C00374F62 /* Supporting Files */,
 				043807CB1C914F0B00374F62 /* EmitterSampleVC.h */,
 				043807CC1C914F0B00374F62 /* EmitterSampleVC.m */,
+				041AD54F1C925D5B00D8B2B6 /* SYEmitterLoopView.h */,
+				041AD5501C925D5B00D8B2B6 /* SYEmitterLoopView.m */,
 			);
 			path = emitterLoop;
 			sourceTree = "<group>";
@@ -248,6 +256,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				041AD5531C928BD900D8B2B6 /* 1.gif in Resources */,
 				043807A81C913C1C00374F62 /* LaunchScreen.storyboard in Resources */,
 				043807A51C913C1C00374F62 /* Assets.xcassets in Resources */,
 				043807A31C913C1C00374F62 /* Main.storyboard in Resources */,
@@ -279,6 +288,7 @@
 				043807CD1C914F0B00374F62 /* EmitterSampleVC.m in Sources */,
 				0438079D1C913C1C00374F62 /* AppDelegate.m in Sources */,
 				0438079A1C913C1C00374F62 /* main.m in Sources */,
+				041AD5511C925D5B00D8B2B6 /* SYEmitterLoopView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,6 +512,7 @@
 				043807C41C913C1C00374F62 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		043807C51C913C1C00374F62 /* Build configuration list for PBXNativeTarget "emitterLoopTests" */ = {
 			isa = XCConfigurationList;
@@ -510,6 +521,7 @@
 				043807C71C913C1C00374F62 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		043807C81C913C1C00374F62 /* Build configuration list for PBXNativeTarget "emitterLoopUITests" */ = {
 			isa = XCConfigurationList;
@@ -518,6 +530,7 @@
 				043807CA1C913C1C00374F62 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

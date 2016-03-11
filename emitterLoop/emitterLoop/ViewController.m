@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "SYEmitterLoopView.h"
+#import "EmitterSampleVC.h"
 #define pi 3.14159265359
 #define   DEGREES_TO_RADIANS(degrees)  ((pi * degrees)/ 180)
 @interface ViewController ()
@@ -22,7 +24,16 @@
 }
 -(void)initEmitter
 {
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.frame = CGRectMake(0, 80, 40, 300);
+    [btn setTitle:@"下一个" forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor purpleColor] forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(nextClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn];
+    
     UILabel *emitterLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.bounds.size.width/2-50, self.view.bounds.size.height/2-50, 100, 100)];
+    emitterLabel.layer.masksToBounds = YES;
+    emitterLabel.layer.cornerRadius = 50;
 //    emitterLabel.text = @"bye";
     [self.view addSubview:emitterLabel];
     CAEmitterCell *explosionCell = [CAEmitterCell emitterCell];
@@ -35,15 +46,15 @@
     explosionCell.birthRate = 500;
     explosionCell.velocity = 40.00;
     explosionCell.velocityRange = 10.00;
-    explosionCell.scale = 0.1;
+    explosionCell.scale = 0.05;
     explosionCell.scaleRange = 0.02;
     explosionCell.emissionLatitude = M_PI;
     explosionCell.emissionLongitude = 0;
     explosionCell.emissionRange = M_PI/4;
-    explosionCell.color = CGColorCreateCopy([UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:.5].CGColor);
-    explosionCell.redRange = 0.5;
-    explosionCell.greenRange =  0.5;
-    explosionCell.blueRange = 0.5;
+//    explosionCell.color = CGColorCreateCopy([UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:.5].CGColor);
+//    explosionCell.redRange = 0.5;
+//    explosionCell.greenRange =  0.5;
+//    explosionCell.blueRange = 0.5;
     CAEmitterLayer *_explosionLayer = [CAEmitterLayer layer];
     _explosionLayer.name = @"emitterLayer";
     _explosionLayer.emitterShape = kCAEmitterLayerCircle;
@@ -54,9 +65,19 @@
     _explosionLayer.renderMode = kCAEmitterLayerAdditive;
     _explosionLayer.masksToBounds = NO;
     
+    CAGradientLayer *_graLayer = [CAGradientLayer layer];
+    _graLayer.opacity = 0.5;
+    CGRect frame = emitterLabel.frame;
+    frame.origin = CGPointZero;
+    _graLayer.frame =frame;
+    _graLayer.colors = @[(id)[UIColor redColor].CGColor,(id)[UIColor greenColor].CGColor,(id)[UIColor blackColor].CGColor];
+    _graLayer.locations = @[@0.2,@0.3,@0.5];
+    _graLayer.startPoint = CGPointMake(0, 0);
+    _graLayer.endPoint = CGPointMake(1, 1);
 //    _explosionLayer.birthRate = 6;
 //    _explosionLayer.seed = 1366128504;
     [emitterLabel.layer addSublayer:_explosionLayer];
+//    [emitterLabel.layer addSublayer:_graLayer];
     //1.获取图形上下文
     CGContextRef ctx=UIGraphicsGetCurrentContext();
     CGMutablePathRef path=CGPathCreateMutable();
@@ -102,6 +123,14 @@
     CFRelease(path);
 //    CFRelease(ctx);
 
+}
+-(void)nextClicked:(UIButton *)btn
+{
+    EmitterSampleVC  *emitterSampleVC = [[EmitterSampleVC alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:emitterSampleVC];
+    [self presentViewController:nav animated:YES completion:^{
+        
+    }];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
