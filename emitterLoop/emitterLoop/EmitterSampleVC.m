@@ -8,6 +8,7 @@
 
 #import "EmitterSampleVC.h"
 #import "SYEmitterLoopView.h"
+#import "SYLoadingLoopView.h"
 @implementation EmitterSampleVC
 -(void)viewDidLoad
 {
@@ -19,6 +20,8 @@
 {
     SYEmitterLoopView *loopView = [[SYEmitterLoopView alloc] initWithFrame:CGRectMake(self.view.bounds.size.width/2-50, self.view.bounds.size.height/2-50, 100, 100)];
     [self.view addSubview:loopView];
+    SYLoadingLoopView *loadingLoopView = [[SYLoadingLoopView alloc] initWithFrame:CGRectMake(0, 64, 100, 100)];
+    [self.view addSubview:loadingLoopView];
 }
 -(void)initNavigationItem
 {

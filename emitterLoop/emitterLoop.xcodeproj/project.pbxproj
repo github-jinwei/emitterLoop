@@ -18,6 +18,7 @@
 		043807B31C913C1C00374F62 /* emitterLoopTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 043807B21C913C1C00374F62 /* emitterLoopTests.m */; };
 		043807BE1C913C1C00374F62 /* emitterLoopUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 043807BD1C913C1C00374F62 /* emitterLoopUITests.m */; };
 		043807CD1C914F0B00374F62 /* EmitterSampleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 043807CC1C914F0B00374F62 /* EmitterSampleVC.m */; };
+		045A5BE41C96B1A0009793E6 /* SYLoadingLoopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 045A5BE31C96B1A0009793E6 /* SYLoadingLoopView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,8 @@
 		043807BF1C913C1C00374F62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		043807CB1C914F0B00374F62 /* EmitterSampleVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmitterSampleVC.h; sourceTree = "<group>"; };
 		043807CC1C914F0B00374F62 /* EmitterSampleVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmitterSampleVC.m; sourceTree = "<group>"; };
+		045A5BE21C96B1A0009793E6 /* SYLoadingLoopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYLoadingLoopView.h; sourceTree = "<group>"; };
+		045A5BE31C96B1A0009793E6 /* SYLoadingLoopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYLoadingLoopView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +126,8 @@
 				043807CC1C914F0B00374F62 /* EmitterSampleVC.m */,
 				041AD54F1C925D5B00D8B2B6 /* SYEmitterLoopView.h */,
 				041AD5501C925D5B00D8B2B6 /* SYEmitterLoopView.m */,
+				045A5BE21C96B1A0009793E6 /* SYLoadingLoopView.h */,
+				045A5BE31C96B1A0009793E6 /* SYLoadingLoopView.m */,
 			);
 			path = emitterLoop;
 			sourceTree = "<group>";
@@ -289,6 +294,7 @@
 				0438079D1C913C1C00374F62 /* AppDelegate.m in Sources */,
 				0438079A1C913C1C00374F62 /* main.m in Sources */,
 				041AD5511C925D5B00D8B2B6 /* SYEmitterLoopView.m in Sources */,
+				045A5BE41C96B1A0009793E6 /* SYLoadingLoopView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

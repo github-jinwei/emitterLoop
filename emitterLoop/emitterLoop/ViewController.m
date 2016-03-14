@@ -9,8 +9,8 @@
 #import "ViewController.h"
 #import "SYEmitterLoopView.h"
 #import "EmitterSampleVC.h"
-#define pi 3.14159265359
-#define   DEGREES_TO_RADIANS(degrees)  ((pi * degrees)/ 180)
+#import "SYLoadingLoopView.h"
+#define   DEGREES_TO_RADIANS(degrees)  ((M_PI * degrees)/ 180)
 @interface ViewController ()
 
 @end
@@ -19,8 +19,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initOtherEmitter];
     [self initEmitter];
     // Do any additional setup after loading the view, typically from a nib.
+}
+-(void)initOtherEmitter
+{
+    SYEmitterLoopView *loopView = [[SYEmitterLoopView alloc] initWithFrame:CGRectMake(self.view.bounds.size.width/2-50, self.view.bounds.size.height/2-50, 100, 100)];
+    [self.view addSubview:loopView];
+    SYLoadingLoopView *loadingLoopView = [[SYLoadingLoopView alloc] initWithFrame:CGRectMake(self.view.bounds.size.width/2-50, 64, 100, 100)];
+    [self.view addSubview:loadingLoopView];
 }
 -(void)initEmitter
 {
@@ -31,7 +39,7 @@
     [btn addTarget:self action:@selector(nextClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
     
-    UILabel *emitterLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.bounds.size.width/2-50, self.view.bounds.size.height/2-50, 100, 100)];
+    UILabel *emitterLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.bounds.size.width/2-50, self.view.bounds.size.height/2+150, 100, 100)];
     emitterLabel.layer.masksToBounds = YES;
     emitterLabel.layer.cornerRadius = 50;
 //    emitterLabel.text = @"bye";
