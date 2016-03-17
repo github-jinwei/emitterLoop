@@ -27,11 +27,16 @@
 {
     SYEmitterLoopView *loopView = [[SYEmitterLoopView alloc] initWithFrame:CGRectMake(self.view.bounds.size.width/2-50, self.view.bounds.size.height/2-50, 100, 100)];
     [self.view addSubview:loopView];
+    
     SYLoadingLoopView *loadingLoopView = [[SYLoadingLoopView alloc] initWithFrame:CGRectMake(self.view.bounds.size.width/2-50, 64, 100, 100)];
     [self.view addSubview:loadingLoopView];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [loadingLoopView endAnimation];
+    });
 }
 -(void)initEmitter
 {
+    self.view.backgroundColor = [UIColor redColor];
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake(0, 80, 40, 300);
     [btn setTitle:@"下一个" forState:UIControlStateNormal];
@@ -45,7 +50,7 @@
 //    emitterLabel.text = @"bye";
     [self.view addSubview:emitterLabel];
     CAEmitterCell *explosionCell = [CAEmitterCell emitterCell];
-    explosionCell.name = @"explosion";
+    
     explosionCell.alphaRange = 0.20;
     explosionCell.alphaSpeed = -1.0;
     explosionCell.contents = (id)[UIImage imageNamed:@"Sparkle"].CGImage;
@@ -59,10 +64,10 @@
     explosionCell.emissionLatitude = M_PI;
     explosionCell.emissionLongitude = 0;
     explosionCell.emissionRange = M_PI/4;
-//    explosionCell.color = CGColorCreateCopy([UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:.5].CGColor);
-//    explosionCell.redRange = 0.5;
-//    explosionCell.greenRange =  0.5;
-//    explosionCell.blueRange = 0.5;
+    explosionCell.color = CGColorCreateCopy([UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:.5].CGColor);
+    explosionCell.redRange = 0.5;
+    explosionCell.greenRange =  0.5;
+    explosionCell.blueRange = 0.5;
     CAEmitterLayer *_explosionLayer = [CAEmitterLayer layer];
     _explosionLayer.name = @"emitterLayer";
     _explosionLayer.emitterShape = kCAEmitterLayerCircle;
