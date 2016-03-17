@@ -11,7 +11,7 @@
 #import "EmitterSampleVC.h"
 #import "SYLoadingLoopView.h"
 #define   DEGREES_TO_RADIANS(degrees)  ((M_PI * degrees)/ 180)
-@interface ViewController ()
+@interface ViewController ()<SYLoadingLoopViewDelegate>
 
 @end
 
@@ -20,23 +20,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initOtherEmitter];
-    [self initEmitter];
+//    [self initEmitter];
     // Do any additional setup after loading the view, typically from a nib.
 }
 -(void)initOtherEmitter
 {
-    SYEmitterLoopView *loopView = [[SYEmitterLoopView alloc] initWithFrame:CGRectMake(self.view.bounds.size.width/2-50, self.view.bounds.size.height/2-50, 100, 100)];
-    [self.view addSubview:loopView];
-    
+//    SYEmitterLoopView *loopView = [[SYEmitterLoopView alloc] initWithFrame:CGRectMake(self.view.bounds.size.width/2-50, self.view.bounds.size.height/2-50, 100, 100)];
+//    [self.view addSubview:loopView];
+    self.view.backgroundColor = [UIColor grayColor];
     SYLoadingLoopView *loadingLoopView = [[SYLoadingLoopView alloc] initWithFrame:CGRectMake(self.view.bounds.size.width/2-50, 64, 100, 100)];
+    loadingLoopView.roundDuration = 10;//旋转一圈所需时间
+    loadingLoopView.isDefaultEndAnimation = YES;//是否需要旋转结束后的默认动画
+    loadingLoopView.delegate = self;
     [self.view addSubview:loadingLoopView];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [loadingLoopView endAnimation];
     });
 }
 -(void)initEmitter
 {
-    self.view.backgroundColor = [UIColor redColor];
+    
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake(0, 80, 40, 300);
     [btn setTitle:@"下一个" forState:UIControlStateNormal];
@@ -136,6 +139,11 @@
     CFRelease(path);
 //    CFRelease(ctx);
 
+}
+//SYLoadingLoopViewDelegate 所有动画结束后的回调方法
+-(void)endLoadingLoopViewAnimate
+{
+    
 }
 -(void)nextClicked:(UIButton *)btn
 {

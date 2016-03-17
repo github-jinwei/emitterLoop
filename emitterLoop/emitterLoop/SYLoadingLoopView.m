@@ -12,6 +12,7 @@
     CABasicAnimation* rotationAnimation;
 }
 @property (nonatomic, strong)CAEmitterLayer *airplaneLayer;
+@property (nonatomic, strong)CAEmitterLayer *fullScreenLayer;
 @end
 @implementation SYLoadingLoopView
 
@@ -48,6 +49,7 @@
     //默认初始化属性值
     self.viewStyle = SYLoadingLoopViewStyleClockWise;
     self.roundDuration = 5;
+    self.isDefaultEndAnimation = YES;
 }
 -(void)setUp
 {
@@ -123,15 +125,19 @@
 
 -(void)endAnimation
 {
-    
-    rotationAnimation.duration = 0;
-    rotationAnimation.repeatCount = 0;
+    [self.layer removeAllAnimations];
+    [self.airplaneLayer removeFromSuperlayer];
+    [self setImage:nil];
     if (self.isDefaultEndAnimation) {
         [self defaultEndAnimation];
     }
-    if ([self.delegate respondsToSelector:@selector(endLoadingLoopViewAnimate)]) {
-        [_delegate endLoadingLoopViewAnimate];
-    }
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.fullScreenLayer removeAllAnimations];
+        if ([self.delegate respondsToSelector:@selector(endLoadingLoopViewAnimate)]) {
+            [_delegate endLoadingLoopViewAnimate];
+        }
+    });
+    
 }
 -(void)defaultEndAnimation
 {
@@ -198,23 +204,23 @@
         cell3.alphaSpeed = -0.05;
         
         UIImage *image = [UIImage imageNamed:@"flake1"];
-        CAEmitterLayer *fullScreenLayer = [[CAEmitterLayer alloc] init];
-        fullScreenLayer.contents = @[image];
+        self.fullScreenLayer = [[CAEmitterLayer alloc] init];
+        self.fullScreenLayer.contents = @[image];
         CGRect frame = CGRectMake(0, -70, self.superview.bounds.size.width, 50);
-        fullScreenLayer.frame = frame;
+        self.fullScreenLayer.frame = frame;
         NSLog(@"self.superview.frame%@",@(self.superview.frame.size.height));
 //        fullScreenLayer.opacity = 1;
-        fullScreenLayer.name = @"fullScreenEmitterLayer";
-        fullScreenLayer.emitterShape = kCAEmitterLayerRectangle;
-        fullScreenLayer.emitterPosition = CGPointMake(frame.size.width/2, frame.size.height/2);
-        fullScreenLayer.emitterSize = frame.size;
+        self.fullScreenLayer.name = @"fullScreenEmitterLayer";
+        self.fullScreenLayer.emitterShape = kCAEmitterLayerRectangle;
+        self.fullScreenLayer.emitterPosition = CGPointMake(frame.size.width/2, frame.size.height/2);
+        self.fullScreenLayer.emitterSize = frame.size;
 //        fullScreenLayer.emitterMode = kCAEmitterLayerSurface;
 //        fullScreenLayer.emitterSize = CGSizeMake(25, 0);
-        fullScreenLayer.emitterCells = @[emitterCell,explosionCell,cell3];
+        self.fullScreenLayer.emitterCells = @[emitterCell,explosionCell,cell3];
         
-        fullScreenLayer.renderMode = kCAEmitterLayerOldestFirst;
-        fullScreenLayer.masksToBounds = NO;
-        [self.superview.layer addSublayer:fullScreenLayer];
+        self.fullScreenLayer.renderMode = kCAEmitterLayerOldestFirst;
+        self.fullScreenLayer.masksToBounds = NO;
+        [self.superview.layer addSublayer:self.fullScreenLayer];
     }
 }
 @end
